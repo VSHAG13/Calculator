@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			
+		<style>
+		
+				
+					
+				#formborder
+					{
+						border: 2px dotted black;
+						border-radius: 80px;
+						width: 700px;
+						height: 300px;
+					}
+					
+				#Title
+					{
+						text-align : center;
+						font-weight : bold;
+						font-size : 25px;
+					}
+					
+				button
+					{
+						border-radius: 8px;
+						font-size: 18px;
+						padding: 6px 16px;
+					}
+				
+				table, td
+					{
+						border-collapse: collapse;
+						font-size:22px;
+					}
+					
+				tr
+					{
+						height: 75px;
+						width:100px;
+					}
+					
+				table.center
+					{
+						margin-left: auto;
+						margin-right: auto;
+					}
+					
+				
+		
+		</style>
+		
+	</head>
+	
+	<body>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				
+			<div id="Title">Domestic Electracity Bill Calculater</div>
+			
+				<br>
+		<center>
+			<div id="formborder" >
+				
+				<form>
+					<table class="center" >
+							<tr>
+								<td style="width:200px">
+									<label for="Units">No Of Units Used :</label>
+								</td>
+								
+								<td>
+									<input type="number"
+     											id="units"
+     											name="units">
+								</td>
+								
+								<td>kW/h</td>
+							</tr>
+							
+							<tr>
+								<td/>
+								
+								<td style="text-align:right">
+									<button type="button" onclick="document.getElementById('units').value = ''"> Clear</button>
+								</td>
+								
+							</tr>
+							
+							<tr>
+								<td/>
+								
+								<td style="text-align:right">
+									<button type="button" style="padding: 13px 23px" id="bill" onclick="payment_Calculate()">Calculate My Bill</button>
+								
+								</td>
+									
+								<td/>
+							</tr>
+							<tr>
+								<td>Your Bill Amount is :</td>
+								
+								<td id = "rate">
+									
+								</td>
+											   
+							</tr>
+					</table>
+									
+				</form>
+			</div>
+			
+			
+			<table>
+			
+				<tr>
+				<td style="width:450px"><a href="https://roar.media/english/life/reports/electricity-bill-calculated-analysis" >More information on how my bill is <br>calculated</a></td>
+				<td><a href="https://ceb.lk/" >Go to CEB website</a></td>
+				</tr>						
+				<tr>
+				<td colspan="2" style="text-align:center; text-decoration:underline;" ><br>Created by : Thavendran Vithyasaghar</td>
+				</tr>
+				
+			</table>
+		</center>
+		
+		<script>
+			function payment_Calculate()
+			{
+				let u = document.getElementById("units").value ;
+			
+				if(u < 30)
+				{
+					document.getElementById("rs").innerHTML=Number(u)*7.85+" Rs";
+				}
+				
+				else if(u <= 60)
+				{
+					var rate=235.50+(Number(u)-30)*7.85;
+					document.getElementById("rate").innerHTML=rs+" Rs";
+				}
+				
+				else if(u <= 90)
+				{
+					var rs=471+(Number(u)-60)*10;
+					document.getElementById("rate").innerHTML=rs+" Rs";
+				}
+				
+				else if(u <= 120)
+				{
+					var rs=771+(Number(u)-90)*27.75;
+					document.getElementById("rate").innerHTML=rs+" Rs";
+				}
+				
+				else
+				{
+					document.getElementById("rate").innerHTML=1603.50+(Number(u)-120)*32.48+" Rs";
+				
+				}
+			
+			
+			
+			
+			
+			}
+		</script>
+	</body>
+</html>
